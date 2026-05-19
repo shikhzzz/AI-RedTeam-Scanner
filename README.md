@@ -1,25 +1,36 @@
-# AI Red Team Scanner
+# AI Red Team Scanner 🔍
 
 An automated prompt injection vulnerability scanner for LLM-powered applications.
+Built to demonstrate how AI systems can be systematically tested for security weaknesses
+— the same way a penetration tester would approach a web application.
 
-## What it does
-- Fires a library of adversarial prompts at an LLM application
-- Detects signs of successful prompt injection
-- Generates a structured vulnerability report
+---
 
-## Why this matters
+## What is prompt injection?
+
 Prompt injection is the #1 vulnerability in LLM applications (OWASP Top 10 for LLMs).
-This tool automates what a security researcher would do manually — systematically 
-probing an AI system for weaknesses and documenting findings.
+It happens when an attacker crafts inputs that cause an AI model to ignore its 
+instructions and behave in unintended ways — revealing secrets, abandoning its 
+role, or bypassing restrictions.
 
-## Tech stack
-- Python
-- Groq API (LLaMA 3)
-- Docker
+This tool automates that attack process.
 
-## Current findings (manual testing)
-- System prompt override: CRITICAL ✅
-- System prompt extraction via social engineering: CRITICAL ✅
+---
 
-## Status
-🚧 Week 1 — manual testing complete. Automation in progress.
+## What this scanner does
+
+- Fires a library of adversarial payloads at a target LLM
+- Detects signs of successful prompt injection in responses
+- Flags vulnerabilities with severity ratings
+- Saves a structured JSON report of all findings
+- Containerised with Docker — runs anywhere in one command
+
+---
+
+## Key findings from testing
+
+Tested against Meta's LLaMA 3.3 70B model deployed on Groq:
+
+| Attack Type | Payload | Result |
+|---|---|---|
+| Role
