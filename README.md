@@ -1,4 +1,4 @@
-# AI Red Team Scanner 🔍
+# AI Red Team Scanner 
 
 An automated prompt injection vulnerability scanner for LLM-powered applications.
 Built to demonstrate how AI systems can be systematically tested for security weaknesses
