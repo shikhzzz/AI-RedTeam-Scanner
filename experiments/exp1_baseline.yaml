@@ -1,0 +1,18 @@
+# Experiment 1 - Baseline susceptibility (roadmap Part 10)
+# RQ: How susceptible is the victim app to the baseline attack suite?
+# Single target model, full suite, expected_behavior evaluator.
+#
+# IMPORTANT: model_id must be a model your Groq key can access. Run
+#   python -m src.cli list-models
+# first and set model_id to one of the printed IDs if the default is
+# unavailable on your tier.
+
+experiment_id: exp1-baseline
+provider: groq
+model_id: "openai/gpt-oss-120b"    # Groq-recommended replacement for the retired llama-3.3-70b
+evaluator: expected_behavior_v1
+temperature: 0.0
+max_tokens: 512
+repeats: 3          # run the suite 3x to observe nondeterminism (roadmap Part 8)
+dataset: attacks/payloads.yaml
+out_dir: results

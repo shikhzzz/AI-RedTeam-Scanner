@@ -1,0 +1,19 @@
+# Experiment 3 - Model A vs Model B (roadmap Part 10)
+# RQ: Does robustness to the same suite differ across two models under
+# identical conditions (same suite, evaluator, params)?
+#
+# Two DIFFERENT model families make this a more meaningful comparison than
+# two variants of the same family. Verify both IDs with:
+#   python -m src.cli list-models
+
+experiment_id: exp3-model-compare
+provider: groq
+models:
+  - "openai/gpt-oss-120b"     # OpenAI-lineage
+  - "qwen/qwen3.6-27b"         # Qwen-lineage (verify availability; qwen3.6-27b if listed)
+evaluator: expected_behavior_v1
+temperature: 0.0
+max_tokens: 512
+repeats: 3
+dataset: attacks/payloads.yaml
+out_dir: results
